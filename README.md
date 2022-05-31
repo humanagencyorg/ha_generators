@@ -1,28 +1,71 @@
 # HaGenerators
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/ha_generators`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
-
+This gem adds generators for services, workers, and serializers.
+Sometimes we feel that we need to move some logic to a service file.
+This PR helps to make this process easier.
+Just run `rails g ha_generators:service foo::bar` and you'll have:
+```
+create app/services/foo/bar.rb
+create spec/services/foo/bar_spec.rb
+```
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'ha_generators'
+gem "ha_generators", github: "humanagencyorg/ha_generators"
 ```
 
 And then execute:
 
     $ bundle install
 
-Or install it yourself as:
-
-    $ gem install ha_generators
-
 ## Usage
 
-TODO: Write usage instructions here
+```
+# create service Foo::BarService
+rails g ha_generators:service foo::bar 
+
+# create worker Foo::BarWorker
+rails g ha_generators:worker foo::bar
+
+# create serializer Foo::BarSerializer
+rails g ha_generators:service foo::bar
+```
+### Generated service example
+`rails g ha_generators:service foo::bar` generates:
+
+```ruby
+# app/services/foo/bar.rb
+# frozen_string_literal: true
+
+class Foo::Bar < ApplicationService
+  def initialize
+  end
+
+  def call
+    true
+  end
+end
+
+```
+```ruby
+# spec/services/foo/bar_spec.rb
+# frozen_string_literal: true
+
+require "rails_helper"
+
+RSpec.describe Foo::Bar, type: :service do
+  describe ".call" do
+    it "returns true" do
+      result = described_class.call
+
+      expect(result).to eq true
+    end
+  end
+end
+
+```
 
 ## Development
 
@@ -32,7 +75,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/ha_generators.
+Bug reports and pull requests are welcome on GitHub at https://github.com/humanagencyorg/ha_generators.
 
 ## License
 
