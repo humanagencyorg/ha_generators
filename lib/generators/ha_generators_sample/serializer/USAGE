@@ -1,0 +1,9 @@
+Description:
+    HA Serializer generator
+
+Example:
+    bin/rails generate ha:serializer Foo::Bar::Baz attr1 attr2
+
+    This will create:
+      app/serializers/foo/bar/baz_serializer.rb
+      spec/serializers/foo/bar/baz_serializer_spec.rb

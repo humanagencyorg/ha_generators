@@ -1,0 +1,18 @@
+# frozen_string_literal: true
+
+<% name = class_name.demodulize.downcase -%>
+require "rails_helper"
+
+RSpec.describe <%= class_name %>Serializer do
+  describe "attributes" do
+    it "returns attributes by <%= name %>" do
+      <%= name %> = create(:<%= name %>)
+
+      attributes = described_class.new(<%= name %>).serializable_hash[:data][:attributes]
+
+      <%- attributes.map(&:name).each do |attribute| -%>
+      expect(attributes[:<%= attribute %>]).to eq(<%= name %>.<%= attribute %>)
+      <%- end -%>
+    end
+  end
+end

@@ -1,0 +1,9 @@
+Description:
+    HA Worker generator
+
+Example:
+    bin/rails generate ha:worker Foo::Bar::Baz
+
+    This will create:
+      app/workers/foo/bar/baz_worker.rb
+      spec/workers/foo/bar/baz_worker_spec.rb

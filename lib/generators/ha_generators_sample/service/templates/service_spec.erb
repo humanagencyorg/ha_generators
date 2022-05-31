@@ -1,0 +1,13 @@
+# frozen_string_literal: true
+
+require "rails_helper"
+
+RSpec.describe <%= class_name %>, type: :service do
+  describe ".call" do
+    it "returns true" do
+      result = described_class.call
+
+      expect(result).to eq true
+    end
+  end
+end

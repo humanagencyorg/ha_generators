@@ -1,0 +1,9 @@
+Description:
+    HA Service generator
+
+Example:
+    bin/rails generate ha:service Foo::Bar::Baz
+
+    This will create:
+      app/services/foo/bar/baz.rb
+      spec/services/foo/bar/baz_spec.rb

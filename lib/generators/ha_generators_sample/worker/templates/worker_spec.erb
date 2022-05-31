@@ -1,0 +1,13 @@
+# frozen_string_literal: true
+
+require "rails_helper"
+
+RSpec.describe <%= class_name %> do
+  describe "#perform" do
+    it "returns true" do
+      result = described_class.new.perform
+
+      expect(result).to eq true
+    end
+  end
+end
