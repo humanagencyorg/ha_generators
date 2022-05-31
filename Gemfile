@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-# Specify your gem's dependencies in ha_generators_sample.gemspec
+# Specify your gem's dependencies in ha_generators.gemspec
 gemspec
 
 gem "rake", "~> 13.0"

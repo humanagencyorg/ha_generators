@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-RSpec.describe HaGeneratorsSample do
+RSpec.describe HaGenerators do
   it "has a version number" do
-    expect(HaGeneratorsSample::VERSION).not_to be nil
+    expect(HaGenerators::VERSION).not_to be nil
   end
 
   it "does something useful" do

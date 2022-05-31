@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "ha_generators_sample"
+require "ha_generators"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require_relative "lib/ha_generators_sample/version"
+require_relative "lib/ha_generators/version"
 
 Gem::Specification.new do |spec|
-  spec.name = "ha_generators_sample"
-  spec.version = HaGeneratorsSample::VERSION
+  spec.name = "ha_generators"
+  spec.version = HaGenerators::VERSION
   spec.authors = ["Oleksandr Veshcherovych"]
   spec.email = ["oleksandr@humanagency.com"]
 

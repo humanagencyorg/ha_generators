@@ -1,9 +1,9 @@
 require "spec_helper"
-require_relative "../../../lib/generators/ha_generators_sample/worker/worker_generator"
+require_relative "../../../lib/generators/ha_generators/service/service_generator"
 
-RSpec.describe HaGeneratorsSample::Generators::WorkerGenerator, type: :generator do
-  let(:file) { "./tmp/app/workers/foo/bar/baz_worker.rb" }
-  let(:spec_file) { "./tmp/spec/workers/foo/bar/baz_worker_spec.rb" }
+RSpec.describe HaGenerators::Generators::ServiceGenerator, type: :generator do
+  let(:file) { "./tmp/app/services/foo/bar/baz.rb" }
+  let(:spec_file) { "./tmp/spec/services/foo/bar/baz_spec.rb" }
 
   around(:each) do |example|
     cleanup
@@ -13,9 +13,9 @@ RSpec.describe HaGeneratorsSample::Generators::WorkerGenerator, type: :generator
     cleanup
   end
 
-  context "worker" do
-    it "creates correct worker file" do
-      # rails g ha:worker Foo::Bar::Baz
+  context "service" do
+    it "creates correct service file" do
+      # rails g ha:service Foo::Bar::Baz
       # used destination_root here to avoid deleting real files
       described_class.new(["Foo::Bar::Baz"], [], destination_root: "./tmp").invoke_all
 
@@ -24,9 +24,9 @@ RSpec.describe HaGeneratorsSample::Generators::WorkerGenerator, type: :generator
     end
   end
 
-  context "worker spec" do
-    it "creates correct worker spec file" do
-      # rails g ha:worker Foo::Bar::Baz
+  context "service spec" do
+    it "creates correct service spec file" do
+      # rails g ha:service Foo::Bar::Baz
       # used destination_root here to avoid deleting real files
       described_class.new(["Foo::Bar::Baz"], [], destination_root: "./tmp").invoke_all
 
@@ -46,10 +46,11 @@ RSpec.describe HaGeneratorsSample::Generators::WorkerGenerator, type: :generator
     <<~FILE
       # frozen_string_literal: true
 
-      class Foo::Bar::Baz
-        include Sidekiq::Worker
+      class Foo::Bar::Baz < ApplicationService
+        def initialize
+        end
 
-        def perform
+        def call
           true
         end
       end
@@ -62,10 +63,10 @@ RSpec.describe HaGeneratorsSample::Generators::WorkerGenerator, type: :generator
 
       require "rails_helper"
 
-      RSpec.describe Foo::Bar::Baz do
-        describe "#perform" do
+      RSpec.describe Foo::Bar::Baz, type: :service do
+        describe ".call" do
           it "returns true" do
-            result = described_class.new.perform
+            result = described_class.call
 
             expect(result).to eq true
           end

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ha_generators_sample (0.1.0)
+    ha_generators (0.1.0)
       rails
 
 GEM
@@ -176,7 +176,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  ha_generators_sample!
+  ha_generators!
   rake (~> 13.0)
   rspec (~> 3.0)
   standard (~> 1.3)

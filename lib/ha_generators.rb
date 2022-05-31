@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require_relative "ha_generators_sample/version"
+require_relative "ha_generators/version"
 
-module HaGeneratorsSample
+module HaGenerators
   class Error < StandardError; end
   # Your code goes here...
 end

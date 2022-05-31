@@ -1,7 +1,7 @@
 require "spec_helper"
-require_relative "../../../lib/generators/ha_generators_sample/serializer/serializer_generator"
+require_relative "../../../lib/generators/ha_generators/serializer/serializer_generator"
 
-RSpec.describe HaGeneratorsSample::Generators::SerializerGenerator, type: :generator do
+RSpec.describe HaGenerators::Generators::SerializerGenerator, type: :generator do
   let(:file) { "./tmp/app/serializers/foo/bar/baz_serializer.rb" }
   let(:spec_file) { "./tmp/spec/serializers/foo/bar/baz_serializer_spec.rb" }
 
