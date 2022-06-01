@@ -1,7 +1,7 @@
 require "spec_helper"
-require_relative "../../../lib/generators/ha_generators/worker/worker_generator"
+require_relative "../../../lib/generators/ha/worker/worker_generator"
 
-RSpec.describe HaGenerators::Generators::WorkerGenerator, type: :generator do
+RSpec.describe Ha::Generators::WorkerGenerator, type: :generator do
   let(:file) { "./tmp/app/workers/foo/bar/baz_worker.rb" }
   let(:spec_file) { "./tmp/spec/workers/foo/bar/baz_worker_spec.rb" }
 

@@ -3,7 +3,7 @@
 This gem adds generators for services, workers, and serializers.
 Sometimes we feel that we need to move some logic to a service file.
 This PR helps to make this process easier.
-Just run `rails g ha_generators:service foo::bar` and you'll have:
+Just run `rails g ha:service foo::bar` and you'll have:
 ```
 create app/services/foo/bar.rb
 create spec/services/foo/bar_spec.rb
@@ -24,16 +24,16 @@ And then execute:
 
 ```
 # create service Foo::BarService
-rails g ha_generators:service foo::bar 
+rails g ha:service foo::bar
 
 # create worker Foo::BarWorker
-rails g ha_generators:worker foo::bar
+rails g ha:worker foo::bar
 
 # create serializer Foo::BarSerializer
-rails g ha_generators:service foo::bar
+rails g ha:service foo::bar
 ```
 ### Generated service example
-`rails g ha_generators:service foo::bar` generates:
+`rails g ha:service foo::bar` generates:
 
 ```ruby
 # app/services/foo/bar.rb

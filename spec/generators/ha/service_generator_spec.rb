@@ -1,7 +1,7 @@
 require "spec_helper"
-require_relative "../../../lib/generators/ha_generators/service/service_generator"
+require_relative "../../../lib/generators/ha/service/service_generator"
 
-RSpec.describe HaGenerators::Generators::ServiceGenerator, type: :generator do
+RSpec.describe Ha::Generators::ServiceGenerator, type: :generator do
   let(:file) { "./tmp/app/services/foo/bar/baz.rb" }
   let(:spec_file) { "./tmp/spec/services/foo/bar/baz_spec.rb" }
 

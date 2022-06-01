@@ -1,6 +1,6 @@
 require "rails/generators"
 
-module HaGenerators
+module Ha
   module Generators
     class AbstractGenerator < Rails::Generators::NamedBase
       def generate_file

@@ -1,6 +1,6 @@
 require_relative "../abstract_generator"
 
-module HaGenerators
+module Ha
   module Generators
     class SerializerGenerator < AbstractGenerator
       source_root File.expand_path("templates", __dir__)
