@@ -1,4 +1,5 @@
 require "rails/generators"
+require "fileutils"
 
 class AbstractGenerator < Rails::Generators::NamedBase
   def generate_file
